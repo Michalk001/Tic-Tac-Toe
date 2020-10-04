@@ -2,10 +2,10 @@
 import React, {FunctionComponent, useContext, useEffect, useState} from 'react';
 
 import "./Game.scss"
-import {Score} from "./score/Score";
+import {Score} from "../score/Score";
 import {GameContext} from "../../context/GameContext";
-import {Board} from "./board/Board";
-import {BoxMessage} from "./boxMessage/BoxMessage"
+import {Board} from "../board/Board";
+import {BoxMessage} from "../boxMessage/BoxMessage"
 
 interface IButton {
     message:string,
