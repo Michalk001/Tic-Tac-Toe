@@ -1,0 +1,11 @@
+.score{
+  margin: 15px 0;
+  justify-content: space-between;
+  padding: 0 20px;
+  display: flex;
+  box-sizing: content-box;
+  &__text{
+    color: #09eadc;
+    font-size: 22px;
+  }
+}

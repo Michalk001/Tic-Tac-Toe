@@ -1,0 +1,81 @@
+$cellSize: 120px;
+$icoSize: 60px;
+$cellSizeMin: 100px;
+$icoSizeMin: 45px;
+
+@mixin cell-border($top, $right, $bottom, $left){
+  border-top: $top;
+  border-right: $right;
+  border-bottom: $bottom;
+  border-left: $left;
+  border-color: #09eadc;
+  border-style: solid;
+}
+
+.board{
+  &__row{
+    font-size: 0;
+    .cell:first-child{
+      @include cell-border(0, 3px, 3px, 0);
+    }
+    .cell{
+      @include cell-border(0, 0, 3px, 0);
+    }
+    .cell:last-child{
+      @include cell-border(0, 0, 3px, 3px);
+    }
+    &:last-child{
+      .cell:first-child{
+        @include cell-border(0, 3px,0px, 0);
+      }
+      .cell{
+        @include cell-border(0, 0, 0px, 0);
+      }
+      .cell:last-child{
+        @include cell-border(0, 0, 0px, 3px);
+      }
+    }
+  }
+
+}
+
+.cell{
+  background-color: transparent;
+  width: $cellSize;
+  height: $cellSize;
+  color: #000;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  cursor: default;
+  transition-duration: 0.15s;
+  user-select: none;
+  @media (max-width: 370px) {
+    width: $cellSizeMin;
+    height: $cellSizeMin;
+  }
+  &__ico{
+    text-align: center;
+    top: 47%;
+    left: 50%;
+    position: absolute;
+    transform: translateY(-50%) translateX(-50%) rotateY(90deg);
+    font-size:$icoSize;
+    transition-duration: 0.25s;
+    @media (max-width: 370px) {
+      font-size: $icoSizeMin;
+    }
+    &--rotate{
+      transform: translateY(-50%) translateX(-50%) rotateY(0deg);
+    }
+  }
+  &--empty{
+    cursor: pointer;
+  }
+  &--isBusy{
+
+    background-color: rgba(243,26,170,0.2);
+  }
+
+}
